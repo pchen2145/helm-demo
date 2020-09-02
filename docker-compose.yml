@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+
+  webapp:
+    build: ./webapp
+    restart: always
+
+  person-service:
+    build: ./person-service
+    env_file:
+      - .env-dev
+    restart: always
+
+  counter-service:
+    build: ./counter-service
+    restart: always
+    env_file:
+      - .env-dev
+
+  nginx:
+    build: ./nginx
+    depends_on:
+      - counter-service
+    ports:
+      - 8000:80
+    restart: always
+
+  postgres:
+    image: postgres:11
+    env_file:
+      - .env-dev
+
+  redis:
+    image: redis:alpine
+    env_file:
+      - .env-dev

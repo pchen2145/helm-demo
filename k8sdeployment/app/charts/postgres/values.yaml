@@ -1,0 +1,14 @@
+# Default values for geocentapp.
+# Declare variables to be passed into your templates.
+
+postgres:
+  replicaCount: 1
+  image:
+    repository: pchen2145/geocent-postgres 
+    tag: v1
+    pullPolicy: Always 
+
+  service:
+    type: ClusterIP
+    port: 5432 
+    targetPort: 5432

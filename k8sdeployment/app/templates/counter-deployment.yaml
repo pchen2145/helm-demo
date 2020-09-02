@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counter-deployment 
+spec:
+  replicas: {{ .Values.counter.replicaCount }}
+  selector:
+    matchLabels:
+      app: counter
+  template:
+    metadata:
+      labels:
+        app: counter
+    spec:
+      containers:
+        - name: counter
+          image: "{{ .Values.counter.image.repository }}:{{ .Values.counter.image.tag }}"
+          imagePullPolicy: {{ .Values.counter.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.counter.service.targetPort }}
+          envFrom:
+            - configMapRef:
+                name: env-config

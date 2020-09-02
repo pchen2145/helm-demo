@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: person-deployment
+  labels:
+    app: person
+spec:
+  replicas: {{ .Values.person.replicaCount }}
+  selector:
+    matchLabels:
+      app: person
+  template:
+    metadata:
+      labels:
+        app: person
+    spec:
+      containers:
+        - name: person
+          image: "{{ .Values.person.image.repository }}:{{ .Values.person.image.tag }}"
+          imagePullPolicy: {{ .Values.person.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.person.service.targetPort }} 
+          envFrom: 
+            - configMapRef:
+                name: env-config
