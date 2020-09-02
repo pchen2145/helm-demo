@@ -14,7 +14,7 @@ Pre Requisites:
 - Kubectl 1.17.3
 - Docker 19.03.8
 
-Note that the docker images for these applications have already been built and have been pushed to my personal Dockerhub repository. This is where the images are pulled from by default, as specified in the Helm Chart.
+Note that the docker images for these applications have already been built and have been pushed to my personal Dockerhub repository. This is where the images are pulled from by default, as specified in values.yaml.
 
 Steps:
 - Clone this repository
