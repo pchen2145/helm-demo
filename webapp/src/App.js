@@ -42,7 +42,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>DevOps Code Challenge</h1>
+          <h1>Helm Demo Day Of Learning</h1>
 
           <h2>Counter service hit count: { this.state.counts }</h2>
           <h3>Person Service Persons</h3>
