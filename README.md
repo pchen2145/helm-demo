@@ -10,6 +10,7 @@ In this demo, I have an application consisting of 6 components (React front-end,
 
 Pre Requisites:
 - Minikube 1.8.1
+- Hypervisor for Minikube (I used VirtualBox)
 - Helm 3.1.1
 - Kubectl 1.17.3
 - Docker 19.03.8
